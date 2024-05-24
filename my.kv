@@ -1,0 +1,352 @@
+<CreateAccountWindow>:
+    name: "create"
+
+
+    username: username
+    email: email
+    password: passw
+
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        Label:
+            text: "Create an Account"
+            color: 0, 0, 0, 1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.8, 0.1
+
+
+        Label:
+            size_hint: 0.35, 0.15
+            pos_hint: {"x":0.05, "top":0.65}
+            text: "Username: "
+            color: 0, 0, 0, 1
+            font_size: (root.width**2 + root.height**2) / 15**4
+
+
+        TextInput:
+            id: username
+            font_size: (root.width**2 + root.height**2) / 15**4
+            cursor_color: 0, 0, 0, 1
+            multiline: False
+            pos_hint: {"x": 0.3 , "top":0.6}
+            size_hint: 0.4, 0.05
+
+
+        Label:
+            size_hint: 0.35, 0.15
+            pos_hint: {"x":0.05, "top":0.59}
+            text: "Email: "
+            color: 0, 0, 0, 1
+            font_size: (root.width**2 + root.height**2) / 15**4
+
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 15**4
+            cursor_color: 0, 0, 0, 1
+            multiline: False
+            pos_hint: {"x": 0.3, "top":0.54}
+            size_hint: 0.4, 0.05
+
+
+        Label:
+            size_hint: 0.35, 0.15
+            pos_hint: {"x":0.05, "top":0.53}
+            text: "Password: "
+            color: 0, 0, 0, 1
+            font_size: (root.width**2 + root.height**2) / 15**4
+
+
+        TextInput:
+            id: passw
+            font_size: (root.width**2 + root.height**2) / 15**4
+            cursor_color: 0, 0, 0, 1
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.3, "top":0.48}
+            size_hint: 0.4, 0.05
+
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.1}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Submit"
+            color: 0, 0, 0, 1  
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.21}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Already have an Account? Log In"
+            color: 0, 0, 0, 1  
+            on_release:
+                root.manager.transition.direction = "right"
+                root.login()
+
+
+
+
+<LoginWindow>:
+    name: "login"
+
+
+    email: email
+    password: password
+
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        Label:
+            text: "Login"
+            color: 0, 0, 0, 1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.8, 0.1
+
+
+        Label:
+            text:"Email: "
+            color: 0, 0, 0, 1  
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.05, "top":0.65}
+            size_hint: 0.35, 0.15
+
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 15**4
+            cursor_color: 0, 0, 0, 1
+            multiline: False
+            pos_hint: {"x": 0.3 , "top":0.6}
+            size_hint: 0.4, 0.05
+
+
+        Label:
+            text:"Password: "
+            color: 0, 0, 0, 1  
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.025, "top":0.59}
+            size_hint: 0.35, 0.15
+
+
+        TextInput:
+            id: password
+            font_size: (root.width**2 + root.height**2) / 15**4
+            cursor_color: 0, 0, 0, 1
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.3, "top":0.54}
+            size_hint: 0.4, 0.05
+
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.1}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Login"
+            color: 0, 0, 0, 1
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.21}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Don't have an Account? Create One"
+            color: 0, 0, 0, 1
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+
+
+
+
+<MainWindow>:
+    name: "main"
+   
+    FloatLayout:
+
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        Label:
+            id: n
+
+
+        Label:
+            text: "Home Page"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            color: 0, 0, 0, 1
+            pos_hint: {"top": 0.8}  
+            size_hint: 1, 0.1  
+
+
+        Button:
+            text: "Settings"
+            size_hint: 0.2, 0.1
+            pos_hint: {"right": 1, "top": 1}
+            on_release:
+                root.settings()
+
+
+        Button:
+            text: "Fridge"
+            size_hint: 0.3, 0.2
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}  # Position in the middle
+            on_release:
+                root.to_fridge()
+
+
+<SettingsWindow>:
+    name: "settings"
+
+
+    n: n
+    email: email
+    created_label: created
+
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        Label:
+            id: n  
+            pos_hint:{"x": 0.1, "top":0.9}
+            size_hint:0.8, 0.2
+            text: "Account Name: "
+            color: 0, 0, 0, 1  
+
+
+        Label:
+            id: email
+            pos_hint:{"x": 0.1, "top":0.7}
+            size_hint:0.8, 0.2
+            text: "Email: "
+            color: 0, 0, 0, 1  
+
+
+        Label:
+            id: created
+            pos_hint:{"x": 0.1, "top":0.5}
+            size_hint:0.8, 0.2
+            text: "Created: "
+            color: 0, 0, 0, 1  
+
+
+        Button:
+            pos_hint:{"x":0.2, "y": 0.1}
+            size_hint:0.6,0.2
+            text: "Log Out"
+            color: 0, 0, 0, 1  
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
+
+
+        Button:
+            pos_hint:{"x":0.05, "y": 0.8}
+            size_hint: 0.2,0.1
+            text: "Back"
+            color: 0, 0, 0, 1  
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+
+
+<FridgeWindow>:
+    name: "fridge"
+
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White background color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        Label:
+            id: n
+            text: "Fridge"
+            color: 0, 0, 0, 1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.8, 0.1
+
+
+        Label:
+            id: items_label
+            text: ""
+            size_hint: 0.2,0.1
+            color: 0, 0, 0, 1  
+            pos_hint: {"center_x":0.5, "y": 0.5}
+
+
+        Button:
+            text: "Add Item"
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.1, "y": 0.1}
+            on_release: root.add_item()
+
+
+        TextInput:
+            id: item_input
+            hint_text: "Enter item here"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            cursor_color: 0, 0, 0, 1
+            multiline: False
+            size_hint: 0.4, 0.05
+            pos_hint: {"center_x": 0.5, "y": 0.3 if root.input_visible else 2.0 }
+       
+        Button:
+            text: "Remove Item"
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.6, "y": 0.1}
+            on_release: root.open_dropdown(self)
+
+
+        Button:
+            text: "Back"
+            size_hint: 0.2,0.1
+            pos_hint: {"x":0.05, "y": 0.85}
+            on_release:
+                root.manager.transition.direction = 'down'
+                root.manager.current = "main"
